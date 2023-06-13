@@ -2,29 +2,29 @@ cmake_minimum_required(VERSION 2.8.3)
 project(serial)
 
 # Find catkin
-find_package(catkin REQUIRED)
+# find_package(catkin REQUIRED)
 
 if(APPLE)
     find_library(IOKIT_LIBRARY IOKit)
     find_library(FOUNDATION_LIBRARY Foundation)
 endif()
 
-if(UNIX AND NOT APPLE)
-    # If Linux, add rt and pthread
-    set(rt_LIBRARIES rt)
-    set(pthread_LIBRARIES pthread)
-    catkin_package(
-        LIBRARIES ${PROJECT_NAME}
-        INCLUDE_DIRS include
-        DEPENDS rt pthread
-    )
-else()
-    # Otherwise normal call
-    catkin_package(
-        LIBRARIES ${PROJECT_NAME}
-        INCLUDE_DIRS include
-    )
-endif()
+# if(UNIX AND NOT APPLE)
+#     # If Linux, add rt and pthread
+#     set(rt_LIBRARIES rt)
+#     set(pthread_LIBRARIES pthread)
+#     catkin_package(
+#         LIBRARIES ${PROJECT_NAME}
+#         INCLUDE_DIRS include
+#         DEPENDS rt pthread
+#     )
+# else()
+#     # Otherwise normal call
+#     catkin_package(
+#         LIBRARIES ${PROJECT_NAME}
+#         INCLUDE_DIRS include
+#     )
+# endif()
 
 ## Sources
 set(serial_SRCS
@@ -66,14 +66,14 @@ include_directories(include)
 
 ## Install executable
 install(TARGETS ${PROJECT_NAME}
-    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-    RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
+    ARCHIVE DESTINATION /usr/local/lib
+    LIBRARY DESTINATION /usr/local/lib
+    RUNTIME DESTINATION /usr/local/bin
 )
 
 ## Install headers
 install(FILES include/serial/serial.h include/serial/v8stdint.h
-  DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/serial)
+  DESTINATION /usr/local/include/serial)
 
 ## Tests
 if(CATKIN_ENABLE_TESTING)
