@@ -1,3 +1,7 @@
+This is a forked by Martin Hoang (hoangmrt@schaeffler.com)
+- Remove catkin requirement
+- Fixed flush() function
+
 # Serial Communication Library
 
 [![Build Status](https://travis-ci.org/wjwwood/serial.svg?branch=master)](https://travis-ci.org/wjwwood/serial)*(Linux and OS X)* [![Build Status](https://ci.appveyor.com/api/projects/status/github/wjwwood/serial)](https://ci.appveyor.com/project/wjwwood/serial)*(Windows)*
